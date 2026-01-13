@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>حل جملة معادلتين</title>
+<style>
+body { font-family: Arial; text-align: center; }
+input { width: 60px; margin: 5px; }
+button { padding: 8px 15px; }
+</style>
+</head>
+<body>
+
+<h2>حل جملة معادلتين</h2>
+
+<h3>المعادلة الأولى</h3>
+<input id="a" placeholder="a"> x +
+<input id="b" placeholder="b"> y =
+<input id="c" placeholder="c">
+
+<h3>المعادلة الثانية</h3>
+<input id="d" placeholder="d"> x +
+<input id="e" placeholder="e"> y =
+<input id="f" placeholder="f">
+
+<br><br>
+<button onclick="solve()">احسب</button>
+
+<h3 id="result"></h3>
+
+<script>
+function solve() {
+  let a = +document.getElementById("a").value;
+  let b = +document.getElementById("b").value;
+  let c = +document.getElementById("c").value;
+  let d = +document.getElementById("d").value;
+  let e = +document.getElementById("e").value;
+  let f = +document.getElementById("f").value;
+
+  let D = a*e - b*d;
+
+  if (D === 0) {
+    document.getElementById("result").innerText = "لا يوجد حل وحيد";
+    return;
+  }
+
+  let x = (c*e - b*f) / D;
+  let y = (a*f - c*d) / D;
+
+  document.getElementById("result").innerText =
+    `X = ${x.toFixed(2)}, Y = ${y.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>
